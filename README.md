@@ -1,29 +1,49 @@
+I found a dataset of top-grossing concert tours online and wanted to analyze which artists made the most money per show. The problem was that the data was very messy and not usable for analysis in its original form.
 
-I found this dataset of top-grossing concert tours, but it was a mess. It had Wikipedia footnotes (like [1]), weird symbols (†), and currency that Excel couldn't actually read. I wanted to clean it up so I could actually see which artists made the most money per show.
+The dataset contained Wikipedia-style footnotes, special symbols, and currency values that Excel and Python could not treat as numbers. Before doing any analysis, the data needed to be cleaned and structured properly.
 
 What was wrong with the data?
-When I first opened this.csv, I couldn't do any math with it because:
 
-Numbers weren't numbers: Every money value had a $ and commas, so Excel/Python saw them as "text."
+When I first opened the CSV file, I couldn’t do any calculations because of several issues:
 
-Footnote Junk: There were brackets everywhere (e.g., 7[2]). I had to strip those out to get the actual rank.
+Numbers weren’t numbers
+All revenue values included $ signs and commas, so they were read as text instead of numeric values.
 
-Date ranges: "2023-2024" is hard to sort. I needed just the start year to put the tours in order.
+Footnote junk
+Many columns contained brackets and references like 7[2] or symbols such as †, which made sorting and ranking unreliable.
+
+Date ranges instead of years
+Years were written as ranges like 2023–2024, which are difficult to sort or compare. I needed a clean start year for each tour.
 
 How I fixed it
-Instead of deleting things one-by-one (which takes forever), I used a Python script to do the "heavy lifting":
 
-Regex Cleaning: I used a "Regular Expression" to tell the computer: "Find anything inside brackets and delete it." That fixed the names and ranks instantly.
+Instead of cleaning the data manually in Excel, I wrote a Python script to automate the process.
 
-Money Conversion: I stripped out the $ and , and told the computer to treat those columns as "Floats" (numbers).
+Regex cleaning
+I used regular expressions to remove anything inside brackets and to strip out special symbols. This cleaned names, rankings, and text fields in one step.
 
-Splitting Years: I pulled the first four characters from the year column so I could have a clean Start_Year column.
+Money conversion
+I removed $ signs and commas from revenue columns and converted them to numeric values so they could be used in calculations.
 
-What’s in this Repo?
-this.csv: This is the original, messy data I started with.
+Splitting years
+I extracted the first four characters from the year column to create a new Start_Year column that could be sorted correctly.
 
-clean_data.py: The script I wrote to automate the cleanup.
+What’s in this repository?
 
-structured_tour_data.csv: The final, perfect version of the data.
+this.csv
+The original raw dataset with all the formatting issues.
 
-Final_Analysis.xlsx: An Excel file where I took the clean data and made a Pivot Table and a Slicer to make it easy to filter by artist.
+clean_data.py
+The Python script used to clean and structure the data.
+
+structured_tour_data.csv
+The final cleaned version of the dataset, ready for analysis.
+
+Final_Analysis.xlsx
+An Excel file where I used pivot tables and a slicer to explore revenue per show by artist.
+
+Result
+
+After cleaning the data, it became possible to sort, filter, and analyze the tours properly. The dataset can now be used in Excel, Python, or other tools to compare artists and understand revenue patterns.
+
+This project focuses on data cleaning and preparation, which is often the most important step before any real analysis.
