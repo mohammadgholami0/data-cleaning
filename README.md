@@ -1,5 +1,4 @@
-Cleaning & Fixing Concert Tour Data
-The Goal
+
 I found this dataset of top-grossing concert tours, but it was a mess. It had Wikipedia footnotes (like [1]), weird symbols (†), and currency that Excel couldn't actually read. I wanted to clean it up so I could actually see which artists made the most money per show.
 
 What was wrong with the data?
