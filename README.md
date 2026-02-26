@@ -17,7 +17,7 @@ Years were written as ranges like 2023–2024, which are difficult to sort or co
 
 How I fixed it
 
-Instead of cleaning the data manually in Excel, I wrote a Python script to automate the process.
+Instead of cleaning the data manually in Excel, I wrote a Python script to automate the process. but after i opened the file with excel still data wasnot in order in excel so i  organize data in excel also 
 
 Regex cleaning
 I used regular expressions to remove anything inside brackets and to strip out special symbols. This cleaned names, rankings, and text fields in one step.
